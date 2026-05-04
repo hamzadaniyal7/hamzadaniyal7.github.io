@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//opt/homebrew/**)",
+      "Bash(grep -E '^\\(node|npm|pnpm|yarn|bun\\)$')",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/hamza/.nvm/**)",
+      "Read(//Users/hamza/**)",
+      "Read(//Users/hamza/.bun/**)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v20.20.2/bin:$PATH\")",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(tee /tmp/sage_files.txt)"
+    ]
+  }
+}
