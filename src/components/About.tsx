@@ -37,7 +37,7 @@ export function About() {
         <SectionHeading
           eyebrow="About"
           title="Senior frontend engineering, with a focus on impact."
-          description="4+ years shipping production Angular platforms in healthcare, AI governance, and supply chain. I lead frontend teams, own architecture decisions end-to-end, and care about the things users actually feel — performance, polish, and reliability."
+          description="4+ years shipping Angular platforms across healthcare, AI governance, supply chain, climate-tech (Rewiring America), logistics, and AI dev tools (Trillo). I lead frontend teams, own architecture end-to-end, and care about the things users actually feel — performance, polish, and reliability."
         />
 
         <div className="grid lg:grid-cols-12 gap-6">
@@ -111,7 +111,7 @@ export function About() {
                 ))}
               </div>
               <div className="mt-7 pt-6 border-t border-border/60 space-y-2 text-sm text-fg-muted">
-                <Row label="Domains" value="Healthcare · AI Governance · Supply Chain" />
+                <Row label="Domains" value="Healthcare · AI · Climate · Logistics · Supply Chain · Dev Tools" />
                 <Row label="Currently" value="Z-Axiss SMC Pvt Ltd" />
                 <Row label="Open to" value="Remote · Lead / Staff frontend" />
               </div>

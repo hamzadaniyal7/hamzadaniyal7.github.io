@@ -23,7 +23,7 @@ export const navLinks = [
 export const stats = [
   { value: 4, suffix: "+", label: "Years of Experience" },
   { value: 1, suffix: "+", label: "Year AI-Assisted Builds" },
-  { value: 7, suffix: "+", label: "Production Platforms" },
+  { value: 9, suffix: "+", label: "Production Platforms" },
   { value: 60, suffix: "+", label: "Charts Migrated" },
 ];
 
@@ -108,7 +108,7 @@ export const experience = [
     period: "Jun 2022 — Present",
     location: "Remote",
     summary:
-      "Owning frontend architecture, mentoring engineers, and delivering enterprise-grade platforms across healthcare, AI governance, and supply chain domains.",
+      "Owning frontend architecture, mentoring engineers, and delivering enterprise-grade platforms across healthcare, AI governance, supply chain, climate-tech, logistics, and AI dev-tooling domains.",
     highlights: [
       {
         metric: "15+",
@@ -119,8 +119,8 @@ export const experience = [
         text: "Initial load time reduction via lazy loading, route-level code splitting, and OnPush change detection.",
       },
       {
-        metric: "5+",
-        text: "Production platforms shipped — real-time fleet tracking, healthcare workflows, AI governance, and analytics.",
+        metric: "7+",
+        text: "Production platforms shipped — fleet tracking, healthcare, AI governance, supply chain, climate-tech (Rewiring America), and the Trillo backend workbench + file manager.",
       },
       {
         metric: "Lead",
@@ -203,6 +203,30 @@ export const projects = [
     ],
   },
   {
+    name: "Rewiring America — AI Document Search",
+    domain: "AI Search · Climate Tech",
+    summary:
+      "AI-powered document search and retrieval engine for Rewiring America — turning a sprawling corpus of policy, program, and incentive documents into instant, semantic answers grounded in source passages.",
+    problem:
+      "Rewiring America's research, policy, and program documents had grown into a large, unstructured corpus. Stakeholders were spending hours hunting through PDFs and pages for specific clauses, rebates, and program details. Keyword search wasn't enough — the same concept gets phrased a dozen different ways across documents and revisions.",
+    solution:
+      "Built the search engine end-to-end behind their existing product UI: document ingestion and chunking, vector embeddings, a semantically indexed retrieval layer, and a clean retrieval API that returned ranked passages with grounded citations to the client app. Tuned chunking and ranking for the specific shape of policy and incentive content so answers stay precise instead of vaguely on-topic.",
+    impact: [
+      "Hours of manual document hunting compressed into seconds of semantic search",
+      "Citation-backed answers — every result links straight to its source passage",
+      "Indexing pipeline ingests a continually growing corpus without manual curation",
+      "Drop-in API integrated cleanly with Rewiring America's existing product surface",
+    ],
+    stack: [
+      "AI Models",
+      "Vector Embeddings",
+      "Document Indexing",
+      "RAG Pipeline",
+      "Semantic Search",
+      "Retrieval API",
+    ],
+  },
+  {
     name: "Data Visualization Platform",
     domain: "Analytics · Enterprise",
     summary:
@@ -224,6 +248,30 @@ export const projects = [
       "Chart.js",
       "Apache ECharts",
       "TypeScript",
+    ],
+  },
+  {
+    name: "Trillo Backend Workbench",
+    domain: "AI Platform · Developer Tools",
+    summary:
+      "IDE-style backend workbench for Trillo.ai — where developers compose, test, and deploy AI-powered workflows. The same foundation later powered the Trillo File Manager product.",
+    problem:
+      "Trillo's customers were context-switching between editors, runtime logs, AI prompt tools, and admin consoles. The product needed a unified workspace that felt as responsive as a desktop IDE — without ballooning bundle size or fighting Angular change detection at scale.",
+    solution:
+      "Architected the workbench around lazy-loaded feature modules, Signals + OnPush for surgical re-renders, and a virtualized log/console layer that holds tens of thousands of entries without dropping frames. Reusable layout primitives let new editor surfaces ship in days. The same architecture was extended into the Trillo File Manager product with minimal duplication.",
+    impact: [
+      "IDE-style UX — split panes, live logs, AI tooling — without lag at scale",
+      "New feature surfaces shipped in days, not weeks",
+      "Core product surface for Trillo's developer customers",
+      "Architecture reused end-to-end for the Trillo File Manager spin-off",
+    ],
+    stack: [
+      "Angular 18",
+      "Signals",
+      "RxJS",
+      "NgRx",
+      "TypeScript",
+      "Virtualization",
     ],
   },
   {
@@ -279,8 +327,8 @@ export const projects = [
 
 export const achievements = [
   {
-    title: "Delivered 7+ production platforms",
-    text: "Across healthcare, AI governance, supply chain, fleet, analytics, project management, and service marketplaces — each running in production with real users.",
+    title: "Delivered 9+ production platforms",
+    text: "Across healthcare, AI governance, supply chain, fleet & logistics, climate-tech (Rewiring America), AI dev tools (Trillo), analytics, project management, and service marketplaces — each running in production with real users.",
   },
   {
     title: "Led adoption of Angular 18",

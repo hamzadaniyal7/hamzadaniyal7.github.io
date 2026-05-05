@@ -38,9 +38,9 @@ export function Hero() {
           <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.02] font-semibold tracking-tight text-balance">
             <LetterReveal
               as="div"
-              text="Ship faster."
+              text="Engineering at AI speed."
               className="block text-fg"
-              stagger={0.04}
+              stagger={0.035}
             />
             <LetterReveal
               as="div"
