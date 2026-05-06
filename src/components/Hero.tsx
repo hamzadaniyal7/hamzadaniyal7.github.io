@@ -33,11 +33,11 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-border-strong/60 bg-bg-subtle/70 backdrop-blur px-3 py-1.5 text-xs font-medium text-fg-muted"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-sage-400 opacity-75 animate-ping" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-sage-500" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-gold-500" />
             </span>
             Available for senior frontend roles & consulting
-            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-sage-500/15 dark:bg-sage-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-sage-700 dark:text-sage-200">
+            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-gold-500/15 dark:bg-gold-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-700 dark:text-gold-200">
               <Sparkles className="h-3 w-3" />
               AI-Native
             </span>
@@ -74,7 +74,7 @@ export function Hero() {
           >
             {personal.tagline} 4+ years architecting Angular platforms, plus a
             year shipping production-ready apps with{" "}
-            <span className="text-sage-600 dark:text-sage-300 font-medium">
+            <span className="text-gold-600 dark:text-gold-300 font-medium">
               Claude Code, Gemini, and modern vibe-coding workflows
             </span>
             .
@@ -88,7 +88,7 @@ export function Hero() {
           >
             <MagneticButton
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-sage-500 hover:bg-sage-600 dark:bg-sage-300 dark:hover:bg-sage-200 text-sage-50 dark:text-sage-950 px-5 py-3 text-sm font-medium shadow-glow transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-gold-500 hover:bg-gold-600 dark:bg-gold-500 dark:hover:bg-gold-600 text-grey-950 px-5 py-3 text-sm font-medium shadow-glow transition-colors"
             >
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -108,7 +108,7 @@ export function Hero() {
                 aria-label="GitHub"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 transition-all hover:-translate-y-0.5"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-gold-400/60 transition-all hover:-translate-y-0.5"
               >
                 <Github className="h-4 w-4" />
               </a>
@@ -117,7 +117,7 @@ export function Hero() {
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 transition-all hover:-translate-y-0.5"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-gold-400/60 transition-all hover:-translate-y-0.5"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
@@ -126,7 +126,7 @@ export function Hero() {
                 aria-label="Synexis (company)"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 transition-all hover:-translate-y-0.5"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-gold-400/60 transition-all hover:-translate-y-0.5"
               >
                 <Globe className="h-4 w-4" />
               </a>
@@ -162,12 +162,25 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3"
       >
-        <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-fg-subtle">
+        <div className="text-[10px] font-mono uppercase tracking-[0.4em] text-fg-subtle">
           Scroll
         </div>
-        <div className="h-8 w-px bg-gradient-to-b from-sage-400/60 to-transparent" />
+        <div className="relative h-12 w-px overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-gold-500/40 via-gold-500/15 to-transparent" />
+          <motion.div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-3 bg-gradient-to-b from-transparent via-gold-400 to-transparent"
+            animate={{ y: [-12, 48] }}
+            transition={{
+              duration: 2.2,
+              repeat: Infinity,
+              ease: [0.65, 0, 0.35, 1],
+              repeatDelay: 0.4,
+            }}
+          />
+        </div>
       </motion.div>
     </section>
   );
@@ -180,18 +193,18 @@ function HeroCard() {
       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       className="relative"
     >
-      <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-sage-300/40 via-sage-400/20 to-transparent blur-2xl animate-pulse" />
+      <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold-300/40 via-gold-400/20 to-transparent blur-2xl animate-pulse" />
       <TiltCard max={5} className="relative rounded-3xl glass-strong p-1.5 shadow-soft">
         <div className="rounded-[18px] bg-bg/80 backdrop-blur p-5 font-mono text-[11px] leading-relaxed">
           <div className="flex items-center gap-1.5 pb-3 border-b border-border/60">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-sage-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-gold-400/70" />
             <span className="ml-auto text-fg-subtle">~/lead.engineer.ts</span>
           </div>
           <div className="pt-4 space-y-1">
             <div>
-              <span className="text-sage-500 dark:text-sage-300">const</span>{" "}
+              <span className="text-gold-500 dark:text-gold-300">const</span>{" "}
               <span className="text-fg">engineer</span>
               <span className="text-fg-muted"> = </span>
               <span className="text-fg-muted">{"{"}</span>
@@ -199,7 +212,7 @@ function HeroCard() {
             <div className="pl-4 space-y-1">
               <div>
                 <span className="text-fg-muted">name:</span>{" "}
-                <span className="text-sage-600 dark:text-sage-300">
+                <span className="text-gold-600 dark:text-gold-300">
                   &apos;Hamza Daniyal&apos;
                 </span>
                 ,
@@ -207,15 +220,15 @@ function HeroCard() {
               <div>
                 <span className="text-fg-muted">stack:</span>{" "}
                 <span className="text-fg">[</span>
-                <span className="text-sage-600 dark:text-sage-300">
+                <span className="text-gold-600 dark:text-gold-300">
                   &apos;Angular 18&apos;
                 </span>
                 ,{" "}
-                <span className="text-sage-600 dark:text-sage-300">
+                <span className="text-gold-600 dark:text-gold-300">
                   &apos;RxJS&apos;
                 </span>
                 ,{" "}
-                <span className="text-sage-600 dark:text-sage-300">
+                <span className="text-gold-600 dark:text-gold-300">
                   &apos;NgRx&apos;
                 </span>
                 <span className="text-fg">]</span>,
@@ -223,11 +236,11 @@ function HeroCard() {
               <div>
                 <span className="text-fg-muted">aiTools:</span>{" "}
                 <span className="text-fg">[</span>
-                <span className="text-sage-600 dark:text-sage-300">
+                <span className="text-gold-600 dark:text-gold-300">
                   &apos;Claude Code&apos;
                 </span>
                 ,{" "}
-                <span className="text-sage-600 dark:text-sage-300">
+                <span className="text-gold-600 dark:text-gold-300">
                   &apos;Gemini&apos;
                 </span>
                 <span className="text-fg">]</span>,
@@ -238,7 +251,7 @@ function HeroCard() {
               </div>
               <div>
                 <span className="text-fg-muted">shipping:</span>{" "}
-                <span className="text-sage-600 dark:text-sage-300">true</span>,
+                <span className="text-gold-600 dark:text-gold-300">true</span>,
               </div>
             </div>
             <div className="text-fg-muted">{"}"}</div>

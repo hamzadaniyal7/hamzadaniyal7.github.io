@@ -53,7 +53,7 @@ export function Navbar() {
           href="#top"
           className="group inline-flex items-center gap-2 font-semibold tracking-tight"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-sage-500 text-sage-50 dark:bg-sage-400 dark:text-sage-950 font-mono font-bold shadow-glow group-hover:scale-105 transition-transform">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-500 dark:bg-gold-500 text-grey-950 font-mono font-bold shadow-glow group-hover:scale-105 transition-transform">
             HD
           </span>
           <span className="hidden sm:inline text-fg">Hamza Daniyal</span>
@@ -74,7 +74,7 @@ export function Navbar() {
                 {active === link.id && (
                   <motion.span
                     layoutId="nav-active"
-                    className="absolute inset-0 rounded-full bg-sage-200/70 dark:bg-sage-800/70"
+                    className="absolute inset-0 rounded-full bg-grey-200/70 dark:bg-grey-800/70"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -88,7 +88,7 @@ export function Navbar() {
           <a
             href={personal.resume}
             download
-            className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-sage-400/40 bg-sage-500/10 hover:bg-sage-500/20 dark:bg-sage-400/10 dark:hover:bg-sage-400/20 text-sage-700 dark:text-sage-200 px-3.5 py-1.5 text-xs font-medium transition-colors"
+            className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gold-400/40 bg-gold-500/10 hover:bg-gold-500/20 dark:bg-gold-400/10 dark:hover:bg-gold-400/20 text-gold-700 dark:text-gold-200 px-3.5 py-1.5 text-xs font-medium transition-colors"
           >
             <Download className="h-3.5 w-3.5" />
             Resume
@@ -123,7 +123,7 @@ export function Navbar() {
                     className={cn(
                       "block rounded-xl px-4 py-3 text-sm font-medium transition-colors",
                       active === link.id
-                        ? "bg-sage-200/70 dark:bg-sage-800/70 text-fg"
+                        ? "bg-grey-200/70 dark:bg-grey-800/70 text-fg"
                         : "text-fg-muted hover:bg-bg-subtle hover:text-fg",
                     )}
                   >
@@ -135,7 +135,7 @@ export function Navbar() {
                 <a
                   href={personal.resume}
                   download
-                  className="mt-1 flex items-center gap-2 rounded-xl bg-sage-500 dark:bg-sage-400 dark:text-sage-950 text-sage-50 px-4 py-3 text-sm font-medium"
+                  className="mt-1 flex items-center gap-2 rounded-xl bg-gold-500 dark:bg-gold-400 text-grey-950 px-4 py-3 text-sm font-medium"
                 >
                   <Download className="h-4 w-4" />
                   Download Resume

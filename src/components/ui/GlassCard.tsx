@@ -28,7 +28,7 @@ export const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(
         )}
         {...props}
       >
-        <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-br from-white/40 via-transparent to-transparent dark:from-sage-300/[0.04]" />
+        <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-br from-white/40 via-transparent to-transparent dark:from-gold-300/[0.04]" />
         {interactive && shine && <span className="shine-layer" aria-hidden />}
         <div className="relative">{children}</div>
       </motion.div>

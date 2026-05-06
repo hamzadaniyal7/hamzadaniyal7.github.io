@@ -74,6 +74,7 @@ export function Contact() {
     <section id="contact" className="section-pad relative">
       <div className="container-x">
         <SectionHeading
+          index="06"
           eyebrow="Contact"
           title="Let&apos;s build something fast and well-architected."
           description="Whether you&apos;re hiring for a senior frontend role, kicking off a greenfield Angular product, or rescuing a legacy app — I&apos;d love to talk."
@@ -181,7 +182,7 @@ export function Contact() {
                     disabled={status === "sending"}
                     className={cn(
                       "group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all",
-                      "bg-sage-500 hover:bg-sage-600 dark:bg-sage-300 dark:hover:bg-sage-200 text-sage-50 dark:text-sage-950",
+                      "bg-gold-500 hover:bg-gold-600 dark:bg-gold-500 dark:hover:bg-gold-600 text-grey-950",
                       "shadow-glow hover:shadow-glow-strong hover:-translate-y-0.5",
                       "disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0",
                     )}
@@ -237,7 +238,7 @@ function ContactRow({
 }) {
   const content = (
     <div className="flex items-center gap-4 group">
-      <div className="grid h-10 w-10 place-items-center rounded-xl bg-sage-500/10 dark:bg-sage-300/10 text-sage-600 dark:text-sage-200 transition-colors group-hover:bg-sage-500/20 dark:group-hover:bg-sage-300/20">
+      <div className="grid h-10 w-10 place-items-center rounded-xl bg-gold-500/10 dark:bg-gold-300/10 text-gold-600 dark:text-gold-200 transition-colors group-hover:bg-gold-500/20 dark:group-hover:bg-gold-300/20">
         <Icon className="h-4 w-4" />
       </div>
       <div className="min-w-0">
@@ -272,7 +273,7 @@ function SocialLink({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 px-4 py-3 text-sm text-fg transition-colors"
+      className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-gold-400/60 px-4 py-3 text-sm text-fg transition-colors"
     >
       <Icon className="h-4 w-4" />
       {label}
@@ -304,7 +305,7 @@ function Field({
   const baseClass = cn(
     "w-full rounded-xl border border-border bg-bg-subtle/40 px-4 py-3 text-sm text-fg placeholder:text-fg-subtle/70",
     "outline-none transition-all",
-    "focus:border-sage-400/70 focus:bg-bg-subtle/70 focus:ring-2 focus:ring-sage-400/20",
+    "focus:border-gold-400/70 focus:bg-bg-subtle/70 focus:ring-2 focus:ring-gold-400/20",
   );
   return (
     <label className="block">

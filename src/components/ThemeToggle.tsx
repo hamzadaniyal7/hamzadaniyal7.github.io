@@ -22,7 +22,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       className={cn(
         "relative inline-flex h-9 w-9 items-center justify-center rounded-full",
         "border border-border-strong/60 bg-bg-subtle/60 backdrop-blur",
-        "hover:border-sage-400/60 hover:bg-sage-100/60 dark:hover:bg-sage-800/40",
+        "hover:border-gold-400/60 hover:bg-grey-200/60 dark:hover:bg-grey-800/60",
         "transition-colors",
         className,
       )}
@@ -38,9 +38,9 @@ export function ThemeToggle({ className }: { className?: string }) {
             className="flex"
           >
             {isDark ? (
-              <Moon className="h-4 w-4 text-sage-200" />
+              <Moon className="h-4 w-4 text-gold-200" />
             ) : (
-              <Sun className="h-4 w-4 text-sage-600" />
+              <Sun className="h-4 w-4 text-gold-600" />
             )}
           </motion.span>
         )}

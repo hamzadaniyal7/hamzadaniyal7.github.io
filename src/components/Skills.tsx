@@ -23,6 +23,7 @@ export function Skills() {
     <section id="skills" className="section-pad relative">
       <div className="container-x">
         <SectionHeading
+          index="02"
           eyebrow="Skills"
           title="A toolkit built around shipping production Angular at scale."
           description="Grouped by what they actually do, not by buzzword count. Every item below has been used in production code that real users depend on."
@@ -41,14 +42,14 @@ export function Skills() {
               >
                 <GlassCard interactive className="h-full">
                   <div className="flex items-start justify-between">
-                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-sage-500/15 text-sage-600 dark:bg-sage-300/15 dark:text-sage-200 transition-all duration-500 group-hover:bg-sage-500/25 group-hover:rotate-[-6deg] group-hover:scale-105">
+                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-gold-500/15 text-gold-600 dark:bg-gold-300/15 dark:text-gold-200 transition-all duration-500 group-hover:bg-gold-500/25 group-hover:rotate-[-6deg] group-hover:scale-105">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div className="relative h-6 w-10 overflow-hidden">
                       <span className="absolute inset-y-0 right-0 inline-flex items-center text-xs font-mono text-fg-subtle transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-0">
                         0{idx + 1}
                       </span>
-                      <span className="absolute inset-y-0 right-0 inline-flex items-center translate-y-full opacity-0 text-sage-600 dark:text-sage-200 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                      <span className="absolute inset-y-0 right-0 inline-flex items-center translate-y-full opacity-0 text-gold-600 dark:text-gold-200 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                         <ArrowUpRight className="h-4 w-4" />
                       </span>
                     </div>

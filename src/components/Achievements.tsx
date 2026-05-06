@@ -13,6 +13,7 @@ export function Achievements() {
     <section id="achievements" className="section-pad relative">
       <div className="container-x">
         <SectionHeading
+          index="05"
           eyebrow="Achievements"
           title="Compounded wins, not vanity metrics."
           description="What I&apos;ve built, modernized, and led — measured by what stayed true after the launch."
@@ -31,7 +32,7 @@ export function Achievements() {
               >
                 <GlassCard interactive className="h-full">
                   <div className="flex items-start gap-4">
-                    <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-sage-500/20 to-sage-500/5 text-sage-600 dark:from-sage-300/20 dark:to-sage-300/5 dark:text-sage-200 ring-1 ring-sage-500/10 dark:ring-sage-300/15 transition-all duration-500 group-hover:ring-sage-400/40 group-hover:from-sage-500/30 group-hover:scale-110">
+                    <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-gold-500/20 to-gold-500/5 text-gold-600 dark:from-gold-300/20 dark:to-gold-300/5 dark:text-gold-200 ring-1 ring-gold-500/10 dark:ring-gold-300/15 transition-all duration-500 group-hover:ring-gold-400/40 group-hover:from-gold-500/30 group-hover:scale-110">
                       <Icon className="h-5 w-5 transition-transform duration-500 group-hover:rotate-6" />
                     </div>
                     <div>

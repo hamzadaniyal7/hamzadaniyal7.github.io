@@ -12,6 +12,7 @@ export function Experience() {
     <section id="experience" className="section-pad relative">
       <div className="container-x">
         <SectionHeading
+          index="03"
           eyebrow="Experience"
           title="Where the work has actually shipped."
           description="Roles measured by what was delivered, what changed, and what the team carried forward."
@@ -20,7 +21,7 @@ export function Experience() {
         <div className="relative">
           <div
             aria-hidden
-            className="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-sage-400/0 via-sage-400/40 to-sage-400/0"
+            className="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-gold-400/0 via-gold-400/40 to-gold-400/0"
           />
 
           <div className="space-y-6">
@@ -33,7 +34,7 @@ export function Experience() {
                 transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
                 className="relative pl-12 md:pl-16"
               >
-                <div className="absolute left-0 md:left-2 top-6 grid h-9 w-9 place-items-center rounded-full bg-sage-500 dark:bg-sage-400 text-sage-50 dark:text-sage-950 shadow-glow">
+                <div className="absolute left-0 md:left-2 top-6 grid h-9 w-9 place-items-center rounded-full bg-gold-500 dark:bg-gold-400 text-grey-950 shadow-glow">
                   <Briefcase className="h-4 w-4" />
                 </div>
 
@@ -47,7 +48,7 @@ export function Experience() {
                         {role.role}
                       </h3>
                       <div className="mt-1 flex items-center gap-3 text-sm text-fg-muted">
-                        <span className="text-sage-600 dark:text-sage-300 font-medium">
+                        <span className="text-gold-600 dark:text-gold-300 font-medium">
                           {role.company}
                         </span>
                         <span className="inline-flex items-center gap-1 text-xs">
@@ -75,7 +76,7 @@ export function Experience() {
                         key={h.text}
                         className="flex items-start gap-3 rounded-xl border border-border/60 bg-bg-subtle/40 p-4"
                       >
-                        <div className="shrink-0 rounded-lg bg-sage-500/10 dark:bg-sage-300/10 px-2 py-1 text-sm font-mono font-semibold text-sage-600 dark:text-sage-200">
+                        <div className="shrink-0 rounded-lg bg-gold-500/10 dark:bg-gold-300/10 px-2 py-1 text-sm font-mono font-semibold text-gold-600 dark:text-gold-200">
                           {h.metric}
                         </div>
                         <div className="text-sm text-fg-muted leading-relaxed">

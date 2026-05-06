@@ -107,7 +107,7 @@ export const experience = [
     company: "Z-Axiss SMC Pvt Ltd",
     role: "Lead Frontend Engineer",
     period: "Jun 2022 — Present",
-    location: "Remote",
+    location: "Onsite",
     summary:
       "Owning frontend architecture, mentoring engineers, and delivering enterprise-grade platforms across healthcare, AI governance, supply chain, climate-tech, logistics, and AI dev-tooling domains.",
     highlights: [
@@ -121,7 +121,7 @@ export const experience = [
       },
       {
         metric: "7+",
-        text: "Production platforms shipped — fleet tracking, healthcare, AI governance, supply chain, climate-tech (Rewiring America), and the Trillo backend workbench + file manager.",
+        text: "Production platforms shipped — fleet tracking, healthcare, AI governance, supply chain, climate-tech AI search, and the Trillo backend workbench + file manager.",
       },
       {
         metric: "Lead",
@@ -141,10 +141,10 @@ export const experience = [
     ],
   },
   {
-    company: "Independent · AI-Assisted Builds",
+    company: "Z-Axiss SMC Pvt Ltd",
     role: "Full-Stack Engineer",
     period: "2025 — Present",
-    location: "Remote",
+    location: "Onsite",
     summary:
       "Shipping production-ready web apps with Claude Code, Gemini, and modern vibe-coding workflows — moving from spec to launch in weeks, not months, without compromising on architecture.",
     highlights: [
@@ -204,19 +204,19 @@ export const projects = [
     ],
   },
   {
-    name: "Rewiring America — AI Document Search",
+    name: "AI Document Search Engine",
     domain: "AI Search · Climate Tech",
     summary:
-      "AI-powered document search and retrieval engine for Rewiring America — turning a sprawling corpus of policy, program, and incentive documents into instant, semantic answers grounded in source passages.",
+      "AI-powered document search and retrieval engine for a climate-tech nonprofit — turning a sprawling corpus of policy, program, and incentive documents into instant, semantic answers grounded in source passages.",
     problem:
-      "Rewiring America's research, policy, and program documents had grown into a large, unstructured corpus. Stakeholders were spending hours hunting through PDFs and pages for specific clauses, rebates, and program details. Keyword search wasn't enough — the same concept gets phrased a dozen different ways across documents and revisions.",
+      "The client's research, policy, and program documents had grown into a large, unstructured corpus. Stakeholders were spending hours hunting through PDFs and pages for specific clauses, rebates, and program details. Keyword search wasn't enough — the same concept gets phrased a dozen different ways across documents and revisions.",
     solution:
       "Built the search engine end-to-end behind their existing product UI: document ingestion and chunking, vector embeddings, a semantically indexed retrieval layer, and a clean retrieval API that returned ranked passages with grounded citations to the client app. Tuned chunking and ranking for the specific shape of policy and incentive content so answers stay precise instead of vaguely on-topic.",
     impact: [
       "Hours of manual document hunting compressed into seconds of semantic search",
       "Citation-backed answers — every result links straight to its source passage",
       "Indexing pipeline ingests a continually growing corpus without manual curation",
-      "Drop-in API integrated cleanly with Rewiring America's existing product surface",
+      "Drop-in API integrated cleanly with the client's existing product surface",
     ],
     stack: [
       "AI Models",
@@ -329,7 +329,7 @@ export const projects = [
 export const achievements = [
   {
     title: "Delivered 9+ production platforms",
-    text: "Across healthcare, AI governance, supply chain, fleet & logistics, climate-tech (Rewiring America), AI dev tools (Trillo), analytics, project management, and service marketplaces — each running in production with real users.",
+    text: "Across healthcare, AI governance, supply chain, fleet & logistics, climate-tech AI search, AI dev tools (Trillo), analytics, project management, and service marketplaces — each running in production with real users.",
   },
   {
     title: "Led adoption of Angular 18",
