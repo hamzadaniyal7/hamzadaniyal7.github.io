@@ -30,14 +30,14 @@ export function Projects() {
               <TiltCard max={3} className="rounded-2xl">
                 <GlassCard className="overflow-hidden p-0">
                   <div className="grid lg:grid-cols-12 gap-0">
-                    <div className="lg:col-span-5 relative p-7 md:p-9 border-b lg:border-b-0 lg:border-r border-border/60 bg-gradient-to-br from-teal-100/50 via-transparent to-transparent dark:from-teal-800/30">
-                      <div className="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-teal-300/30 dark:bg-teal-500/15 blur-3xl" />
+                    <div className="lg:col-span-5 relative p-7 md:p-9 border-b lg:border-b-0 lg:border-r border-border/60 bg-gradient-to-br from-sage-100/50 via-transparent to-transparent dark:from-sage-800/30">
+                      <div className="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-sage-300/30 dark:bg-sage-500/15 blur-3xl" />
                       <div className="relative">
                         <div className="flex items-center justify-between">
                           <div className="text-xs font-mono uppercase tracking-[0.2em] text-fg-subtle">
                             0{idx + 1} · {p.domain}
                           </div>
-                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-500/10 dark:bg-teal-300/10 text-teal-600 dark:text-teal-200 transition-transform group-hover:rotate-45">
+                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sage-500/10 dark:bg-sage-300/10 text-sage-600 dark:text-sage-200 transition-transform group-hover:rotate-45">
                             <ArrowUpRight className="h-4 w-4" />
                           </span>
                         </div>
@@ -68,7 +68,7 @@ export function Projects() {
                                 key={i}
                                 className="flex gap-2.5 text-sm text-fg-muted leading-relaxed"
                               >
-                                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-teal-400" />
+                                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-sage-400" />
                                 <span>{i}</span>
                               </li>
                             ))}
@@ -99,7 +99,7 @@ function Block({
   return (
     <div>
       <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-fg-subtle">
-        <Icon className="h-3.5 w-3.5 text-teal-500 dark:text-teal-300" />
+        <Icon className="h-3.5 w-3.5 text-sage-500 dark:text-sage-300" />
         {label}
       </div>
       {typeof body === "string" ? (

@@ -37,7 +37,7 @@ export function SectionHeading({
             align === "center" && "mx-auto",
           )}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shadow-[0_0_10px_2px_rgba(20,184,166,0.65)]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-sage-400 shadow-[0_0_10px_2px_rgba(122,138,112,0.7)]" />
           {eyebrow}
         </div>
       )}

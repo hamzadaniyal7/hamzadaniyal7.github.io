@@ -10,23 +10,18 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular"],
       },
       colors: {
-        teal: {
-          50: "#effefa",
-          100: "#cafdf2",
-          200: "#94f9e6",
-          300: "#5eead4",
-          400: "#2dd4bf",
-          500: "#14b8a6",
-          600: "#0d9488",
-          700: "#0f766e",
-          800: "#115e59",
-          900: "#134e4a",
-          950: "#042f2e",
-        },
-        cyan: {
-          400: "#22d3ee",
-          500: "#06b6d4",
-          600: "#0891b2",
+        sage: {
+          50: "#f3f6f1",
+          100: "#e3ebde",
+          200: "#c8d6c0",
+          300: "#a4b89a",
+          400: "#7a8a70",
+          500: "#5c6b54",
+          600: "#475441",
+          700: "#3a4537",
+          800: "#30382e",
+          900: "#272d26",
+          950: "#141812",
         },
         bg: {
           DEFAULT: "rgb(var(--bg) / <alpha-value>)",
@@ -45,15 +40,15 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-light":
-          "linear-gradient(rgba(20,184,166,0.08) 1px, transparent 1px), linear-gradient(to right, rgba(20,184,166,0.08) 1px, transparent 1px)",
+          "linear-gradient(rgba(92,107,84,0.08) 1px, transparent 1px), linear-gradient(to right, rgba(92,107,84,0.08) 1px, transparent 1px)",
         "grid-dark":
-          "linear-gradient(rgba(94,234,212,0.06) 1px, transparent 1px), linear-gradient(to right, rgba(94,234,212,0.06) 1px, transparent 1px)",
+          "linear-gradient(rgba(164,184,154,0.06) 1px, transparent 1px), linear-gradient(to right, rgba(164,184,154,0.06) 1px, transparent 1px)",
         "radial-fade":
-          "radial-gradient(ellipse at top, rgba(20,184,166,0.2), transparent 60%)",
+          "radial-gradient(ellipse at top, rgba(122,138,112,0.18), transparent 60%)",
       },
       boxShadow: {
-        glow: "0 0 60px -10px rgba(20,184,166,0.45)",
-        "glow-strong": "0 0 80px -10px rgba(6,182,212,0.55)",
+        glow: "0 0 60px -10px rgba(122,138,112,0.4)",
+        "glow-strong": "0 0 80px -10px rgba(92,107,84,0.55)",
         soft: "0 4px 30px rgba(0,0,0,0.04)",
       },
       animation: {

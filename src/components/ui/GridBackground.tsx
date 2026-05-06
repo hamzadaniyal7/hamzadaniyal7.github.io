@@ -33,15 +33,15 @@ export function GridBackground({ className }: Props) {
       />
       <motion.div
         style={{ y: y1 }}
-        className="absolute -top-32 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-teal-300/25 dark:bg-teal-500/10 blur-3xl animate-blob-1"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-sage-300/25 dark:bg-sage-500/10 blur-3xl animate-blob-1"
       />
       <motion.div
         style={{ y: y2 }}
-        className="absolute top-1/3 -left-32 h-[400px] w-[400px] rounded-full bg-teal-400/20 dark:bg-teal-600/10 blur-3xl animate-blob-2"
+        className="absolute top-1/3 -left-32 h-[400px] w-[400px] rounded-full bg-sage-400/20 dark:bg-sage-600/10 blur-3xl animate-blob-2"
       />
       <motion.div
         style={{ y: y3 }}
-        className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-teal-200/40 dark:bg-teal-700/15 blur-3xl animate-blob-1"
+        className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-sage-200/40 dark:bg-sage-700/15 blur-3xl animate-blob-1"
       />
     </div>
   );

@@ -8,6 +8,7 @@ export const personal = {
   location: "Pakistan",
   github: "https://github.com/hamzadaniyal7",
   linkedin: "https://www.linkedin.com/in/hamzadaniyal7/",
+  website: "https://www.thesynexis.com/",
   resume: "/Hamza-Daniyal-CV.pdf",
 };
 

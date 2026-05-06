@@ -56,7 +56,7 @@ export function About() {
               <p className="mt-5 text-base md:text-lg leading-relaxed text-fg-muted">
                 I partner with founders and product teams to architect, build,
                 and lead{" "}
-                <span className="text-teal-600 dark:text-teal-300 font-medium">
+                <span className="text-sage-600 dark:text-sage-300 font-medium">
                   Angular and React
                 </span>{" "}
                 platforms — turning complex requirements into shipped software
@@ -72,7 +72,7 @@ export function About() {
                     key={title}
                     className="flex items-start gap-3 rounded-xl border border-border/60 bg-bg-subtle/40 p-4"
                   >
-                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal-500/15 text-teal-600 dark:bg-teal-300/15 dark:text-teal-200">
+                    <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-sage-500/15 text-sage-600 dark:bg-sage-300/15 dark:text-sage-200">
                       <Icon className="h-4 w-4" />
                     </div>
                     <div>

@@ -11,7 +11,10 @@
       "Bash(npm install *)",
       "Bash(npx tsc *)",
       "Bash(npx next *)",
-      "Bash(tee /tmp/sage_files.txt)"
+      "Bash(tee /tmp/sage_files.txt)",
+      "Bash(sed -i '' 's|dark:from-green-300/\\\\[0.04\\\\]|dark:from-neutral-300/[0.04]|g' src/components/ui/GlassCard.tsx)",
+      "Bash(sed -i '' 's|hover:bg-green-100/40 dark:hover:bg-green-800/40|hover:bg-neutral-100/60 dark:hover:bg-neutral-800/60|g' src/components/Footer.tsx)",
+      "Bash(sed -i '' 's|from-green-100/50 via-transparent to-transparent dark:from-green-800/30|from-neutral-100/50 via-transparent to-transparent dark:from-neutral-800/30|g' src/components/Projects.tsx)"
     ]
   }
 }

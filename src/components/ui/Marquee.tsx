@@ -29,7 +29,7 @@ export function Marquee({ items, speed = "normal", className }: Props) {
             <span className="text-fg-muted font-medium tracking-tight">
               {item}
             </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-teal-400/60" />
+            <span className="h-1.5 w-1.5 rounded-full bg-sage-400/60" />
           </div>
         ))}
       </div>

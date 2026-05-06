@@ -41,14 +41,14 @@ export function Skills() {
               >
                 <GlassCard interactive className="h-full">
                   <div className="flex items-start justify-between">
-                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-teal-500/15 text-teal-600 dark:bg-teal-300/15 dark:text-teal-200 transition-all duration-500 group-hover:bg-teal-500/25 group-hover:rotate-[-6deg] group-hover:scale-105">
+                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-sage-500/15 text-sage-600 dark:bg-sage-300/15 dark:text-sage-200 transition-all duration-500 group-hover:bg-sage-500/25 group-hover:rotate-[-6deg] group-hover:scale-105">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div className="relative h-6 w-10 overflow-hidden">
                       <span className="absolute inset-y-0 right-0 inline-flex items-center text-xs font-mono text-fg-subtle transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-0">
                         0{idx + 1}
                       </span>
-                      <span className="absolute inset-y-0 right-0 inline-flex items-center translate-y-full opacity-0 text-teal-600 dark:text-teal-200 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                      <span className="absolute inset-y-0 right-0 inline-flex items-center translate-y-full opacity-0 text-sage-600 dark:text-sage-200 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                         <ArrowUpRight className="h-4 w-4" />
                       </span>
                     </div>

@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Github, Linkedin, MapPin, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Mail,
+  Github,
+  Linkedin,
+  Globe,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
 import { GridBackground } from "./ui/GridBackground";
 import { LetterReveal } from "./ui/LetterReveal";
 import { MagneticButton } from "./ui/MagneticButton";
@@ -25,11 +33,11 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-border-strong/60 bg-bg-subtle/70 backdrop-blur px-3 py-1.5 text-xs font-medium text-fg-muted"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75 animate-ping" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-sage-400 opacity-75 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-sage-500" />
             </span>
             Available for senior frontend roles & consulting
-            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-teal-500/15 dark:bg-teal-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-teal-700 dark:text-teal-200">
+            <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-sage-500/15 dark:bg-sage-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-sage-700 dark:text-sage-200">
               <Sparkles className="h-3 w-3" />
               AI-Native
             </span>
@@ -66,7 +74,7 @@ export function Hero() {
           >
             {personal.tagline} 4+ years architecting Angular platforms, plus a
             year shipping production-ready apps with{" "}
-            <span className="text-teal-600 dark:text-teal-300 font-medium">
+            <span className="text-sage-600 dark:text-sage-300 font-medium">
               Claude Code, Gemini, and modern vibe-coding workflows
             </span>
             .
@@ -80,7 +88,7 @@ export function Hero() {
           >
             <MagneticButton
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-teal-500 hover:bg-teal-600 dark:bg-teal-300 dark:hover:bg-teal-200 text-teal-50 dark:text-teal-950 px-5 py-3 text-sm font-medium shadow-glow transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-sage-500 hover:bg-sage-600 dark:bg-sage-300 dark:hover:bg-sage-200 text-sage-50 dark:text-sage-950 px-5 py-3 text-sm font-medium shadow-glow transition-colors"
             >
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -100,7 +108,7 @@ export function Hero() {
                 aria-label="GitHub"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-teal-400/60 transition-all hover:-translate-y-0.5"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 transition-all hover:-translate-y-0.5"
               >
                 <Github className="h-4 w-4" />
               </a>
@@ -109,9 +117,18 @@ export function Hero() {
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-teal-400/60 transition-all hover:-translate-y-0.5"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 transition-all hover:-translate-y-0.5"
               >
                 <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href={personal.website}
+                aria-label="Synexis (company)"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-sage-400/60 transition-all hover:-translate-y-0.5"
+              >
+                <Globe className="h-4 w-4" />
               </a>
             </div>
           </motion.div>
@@ -150,7 +167,7 @@ export function Hero() {
         <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-fg-subtle">
           Scroll
         </div>
-        <div className="h-8 w-px bg-gradient-to-b from-teal-400/60 to-transparent" />
+        <div className="h-8 w-px bg-gradient-to-b from-sage-400/60 to-transparent" />
       </motion.div>
     </section>
   );
@@ -163,18 +180,18 @@ function HeroCard() {
       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       className="relative"
     >
-      <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-teal-300/40 via-teal-400/20 to-transparent blur-2xl animate-pulse" />
+      <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-sage-300/40 via-sage-400/20 to-transparent blur-2xl animate-pulse" />
       <TiltCard max={5} className="relative rounded-3xl glass-strong p-1.5 shadow-soft">
         <div className="rounded-[18px] bg-bg/80 backdrop-blur p-5 font-mono text-[11px] leading-relaxed">
           <div className="flex items-center gap-1.5 pb-3 border-b border-border/60">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-sage-400/70" />
             <span className="ml-auto text-fg-subtle">~/lead.engineer.ts</span>
           </div>
           <div className="pt-4 space-y-1">
             <div>
-              <span className="text-teal-500 dark:text-teal-300">const</span>{" "}
+              <span className="text-sage-500 dark:text-sage-300">const</span>{" "}
               <span className="text-fg">engineer</span>
               <span className="text-fg-muted"> = </span>
               <span className="text-fg-muted">{"{"}</span>
@@ -182,7 +199,7 @@ function HeroCard() {
             <div className="pl-4 space-y-1">
               <div>
                 <span className="text-fg-muted">name:</span>{" "}
-                <span className="text-teal-600 dark:text-teal-300">
+                <span className="text-sage-600 dark:text-sage-300">
                   &apos;Hamza Daniyal&apos;
                 </span>
                 ,
@@ -190,15 +207,15 @@ function HeroCard() {
               <div>
                 <span className="text-fg-muted">stack:</span>{" "}
                 <span className="text-fg">[</span>
-                <span className="text-teal-600 dark:text-teal-300">
+                <span className="text-sage-600 dark:text-sage-300">
                   &apos;Angular 18&apos;
                 </span>
                 ,{" "}
-                <span className="text-teal-600 dark:text-teal-300">
+                <span className="text-sage-600 dark:text-sage-300">
                   &apos;RxJS&apos;
                 </span>
                 ,{" "}
-                <span className="text-teal-600 dark:text-teal-300">
+                <span className="text-sage-600 dark:text-sage-300">
                   &apos;NgRx&apos;
                 </span>
                 <span className="text-fg">]</span>,
@@ -206,11 +223,11 @@ function HeroCard() {
               <div>
                 <span className="text-fg-muted">aiTools:</span>{" "}
                 <span className="text-fg">[</span>
-                <span className="text-teal-600 dark:text-teal-300">
+                <span className="text-sage-600 dark:text-sage-300">
                   &apos;Claude Code&apos;
                 </span>
                 ,{" "}
-                <span className="text-teal-600 dark:text-teal-300">
+                <span className="text-sage-600 dark:text-sage-300">
                   &apos;Gemini&apos;
                 </span>
                 <span className="text-fg">]</span>,
@@ -221,7 +238,7 @@ function HeroCard() {
               </div>
               <div>
                 <span className="text-fg-muted">shipping:</span>{" "}
-                <span className="text-teal-600 dark:text-teal-300">true</span>,
+                <span className="text-sage-600 dark:text-sage-300">true</span>,
               </div>
             </div>
             <div className="text-fg-muted">{"}"}</div>

@@ -13,11 +13,11 @@ export function Badge({
 }: BadgeProps) {
   const styles = {
     default:
-      "bg-teal-100/70 text-teal-700 border border-teal-200/80 dark:bg-teal-800/40 dark:text-teal-200 dark:border-teal-700/60",
+      "bg-sage-100/70 text-sage-700 border border-sage-200/80 dark:bg-sage-800/40 dark:text-sage-200 dark:border-sage-700/60",
     outline:
       "border border-border-strong/70 text-fg-muted bg-transparent",
     solid:
-      "bg-teal-500 text-teal-50 border border-teal-500 dark:bg-teal-400 dark:text-teal-950 dark:border-teal-400",
+      "bg-sage-500 text-sage-50 border border-sage-500 dark:bg-sage-400 dark:text-sage-950 dark:border-sage-400",
   } as const;
 
   return (
