@@ -16,23 +16,27 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hamza Daniyal — Lead Frontend Engineer",
+  title: "Hamza Daniyal — Frontend & AI Engineer",
   description:
-    "Lead Frontend Engineer specializing in Angular 18, RxJS, NgRx, and scalable frontend architecture. Building high-performance, enterprise-grade applications.",
+    "Frontend & AI Engineer building AI-powered SaaS — agent consoles, streaming conversational UIs, observability dashboards, and the enterprise apps around them. Angular, React, TypeScript, LLMs and AI agents.",
   keywords: [
     "Hamza Daniyal",
-    "Lead Frontend Engineer",
+    "Frontend & AI Engineer",
     "Angular",
-    "RxJS",
-    "NgRx",
+    "React",
+    "Next.js",
     "TypeScript",
+    "LLM Applications",
+    "AI Agents",
+    "RAG",
+    "Agent Observability",
     "Frontend Architecture",
   ],
   authors: [{ name: "Hamza Daniyal" }],
   openGraph: {
-    title: "Hamza Daniyal — Lead Frontend Engineer",
+    title: "Hamza Daniyal — Frontend & AI Engineer",
     description:
-      "Building scalable, high-performance Angular applications with modern architecture.",
+      "Building the interfaces behind AI-powered SaaS — agent consoles, streaming conversational UIs, and observability dashboards.",
     type: "website",
   },
 };

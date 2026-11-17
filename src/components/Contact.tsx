@@ -77,7 +77,7 @@ export function Contact() {
           index="06"
           eyebrow="Contact"
           title="Let&apos;s build something fast and well-architected."
-          description="Whether you&apos;re hiring for a senior frontend role, kicking off a greenfield Angular product, or rescuing a legacy app — I&apos;d love to talk."
+          description="Open to remote Frontend Engineer, AI Application Engineer and Full-Stack roles with product teams building AI-powered or complex SaaS software. If that&apos;s you — or you have a project in mind — let&apos;s talk."
         />
 
         <div className="grid lg:grid-cols-12 gap-6">

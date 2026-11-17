@@ -36,7 +36,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75 animate-ping" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-gold-500" />
             </span>
-            Available for senior frontend roles & consulting
+            Open to remote frontend, AI &amp; full-stack roles
             <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-gold-500/15 dark:bg-gold-300/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-700 dark:text-gold-200">
               <Sparkles className="h-3 w-3" />
               AI-Native
@@ -59,7 +59,7 @@ export function Hero() {
             />
             <LetterReveal
               as="div"
-              text="Lead Frontend Engineer."
+              text="Frontend & AI Engineer."
               className="block mt-4 text-2xl md:text-3xl lg:text-4xl text-fg-muted font-medium tracking-tight"
               delay={0.85}
               stagger={0.02}
@@ -72,10 +72,10 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
             className="mt-6 max-w-2xl text-lg md:text-xl text-fg-muted leading-relaxed text-balance"
           >
-            {personal.tagline} 4+ years architecting Angular platforms, plus a
-            year shipping production-ready apps with{" "}
+            {personal.tagline} 4+ years shipping production web platforms in
+            Angular, React and TypeScript — and two years building with{" "}
             <span className="text-gold-600 dark:text-gold-300 font-medium">
-              Claude Code, Gemini, and modern vibe-coding workflows
+              LLMs, AI agents, and Claude Code
             </span>
             .
           </motion.p>

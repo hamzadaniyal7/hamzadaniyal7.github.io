@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Layers, GitBranch, Sparkles } from "lucide-react";
+import { Cpu, Layers, Bot } from "lucide-react";
 import { SectionHeading } from "./ui/SectionHeading";
 import { GlassCard } from "./ui/GlassCard";
 import { AnimatedCounter } from "./ui/AnimatedCounter";
@@ -10,23 +10,18 @@ import { stats } from "@/lib/data";
 const pillars = [
   {
     icon: Layers,
-    title: "Architecture",
-    text: "Module boundaries, state ownership, and reactive data flows that scale past 100k LoC.",
+    title: "Frontend Engineering",
+    text: "Angular (Signals, RxJS, NgRx, standalone components), React and Next.js — module boundaries, state ownership, and change-detection cost kept under control so large apps stay fast and easy to change.",
+  },
+  {
+    icon: Bot,
+    title: "AI Engineering",
+    text: "LLM applications, AI agents and agentic workflows — streaming chat over SSE, UI generated from a JSON spec, prompt and agent configuration, and RAG document search with cited answers.",
   },
   {
     icon: Cpu,
-    title: "Performance",
-    text: "Lazy loading, OnPush, Signals, virtualization — measured wins, not micro-tweaks.",
-  },
-  {
-    icon: GitBranch,
-    title: "Leadership",
-    text: "Code review culture, mentorship, and decisions that compound across the team.",
-  },
-  {
-    icon: Sparkles,
-    title: "Craft",
-    text: "Pixel-honest UIs, accessibility, and developer experience as first-class concerns.",
+    title: "Full-Stack Development",
+    text: "REST APIs and FastAPI/PostgreSQL backends, Firebase, Stripe, Twilio, and multi-tenant SaaS with role-based access control. Comfortable owning a feature from API contract to pixel.",
   },
 ];
 
@@ -37,8 +32,8 @@ export function About() {
         <SectionHeading
           index="01"
           eyebrow="About"
-          title="Senior frontend engineering, with a focus on impact."
-          description="4+ years shipping Angular platforms across healthcare, AI governance, supply chain, climate-tech AI search, logistics, and AI dev tools (Trillo). I lead frontend teams, own architecture end-to-end, and care about the things users actually feel — performance, polish, and reliability."
+          title="I build the interfaces behind AI-powered products."
+          description="Since graduating in Computer Science in 2022, I&apos;ve spent 4+ years at Z-Axiss shipping production web platforms across logistics, analytics, healthcare, climate-tech and developer tools. For the last ~2 years I&apos;ve worked closely with Trillo on its AI platform — building frontend for agent management, Adaptive UI and agent observability."
         />
 
         <div className="grid lg:grid-cols-12 gap-6">
@@ -51,23 +46,23 @@ export function About() {
           >
             <GlassCard className="h-full">
               <p className="text-2xl md:text-3xl font-semibold tracking-tight text-fg leading-[1.15] text-balance">
-                Ambitious products deserve frontends that{" "}
-                <span className="gradient-text">don&apos;t slow them down.</span>
+                AI-powered products deserve interfaces that{" "}
+                <span className="gradient-text">keep up with them.</span>
               </p>
               <p className="mt-5 text-base md:text-lg leading-relaxed text-fg-muted">
-                I partner with founders and product teams to architect, build,
-                and lead{" "}
+                I build agent consoles, streaming conversational UIs, and
+                observability dashboards on{" "}
                 <span className="text-gold-600 dark:text-gold-300 font-medium">
-                  Angular and React
+                  Angular, React and TypeScript
                 </span>{" "}
-                platforms — turning complex requirements into shipped software
-                that feels fast, scales cleanly, and stays easy to evolve.
+                — turning loose requirements into shipped software that feels
+                fast, scales cleanly, and stays easy to evolve.
               </p>
               <p className="mt-3 text-sm md:text-base leading-relaxed text-fg-subtle">
-                Lead-engineer judgment, hands-on execution, and an obsession
-                with the details users actually feel.
+                LLMs and AI agents are what I build for — and I own the
+                architecture decisions behind every surface I ship.
               </p>
-              <div className="mt-6 grid sm:grid-cols-2 gap-3">
+              <div className="mt-6 grid sm:grid-cols-3 gap-3">
                 {pillars.map(({ icon: Icon, title, text }) => (
                   <div
                     key={title}

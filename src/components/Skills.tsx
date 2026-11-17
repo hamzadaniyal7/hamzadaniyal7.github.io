@@ -25,8 +25,8 @@ export function Skills() {
         <SectionHeading
           index="02"
           eyebrow="Skills"
-          title="A toolkit built around shipping production Angular at scale."
-          description="Grouped by what they actually do, not by buzzword count. Every item below has been used in production code that real users depend on."
+          title="A toolkit built around shipping AI-powered products."
+          description="Three areas I work across — frontend engineering, AI engineering, and full-stack development. Every item below has been used in production code that real users depend on."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

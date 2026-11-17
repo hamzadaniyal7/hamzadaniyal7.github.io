@@ -87,7 +87,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={personal.resume}
-            download
+            download="Hamza-Daniyal-CV.pdf"
             className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gold-400/40 bg-gold-500/10 hover:bg-gold-500/20 dark:bg-gold-400/10 dark:hover:bg-gold-400/20 text-gold-700 dark:text-gold-200 px-3.5 py-1.5 text-xs font-medium transition-colors"
           >
             <Download className="h-3.5 w-3.5" />
@@ -134,7 +134,7 @@ export function Navbar() {
               <li>
                 <a
                   href={personal.resume}
-                  download
+                  download="Hamza-Daniyal-CV.pdf"
                   className="mt-1 flex items-center gap-2 rounded-xl bg-gold-500 dark:bg-gold-400 text-grey-950 px-4 py-3 text-sm font-medium"
                 >
                   <Download className="h-4 w-4" />
