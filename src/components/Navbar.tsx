@@ -16,6 +16,9 @@ export function Navbar() {
   // The sections live on the home page, so off-home the same links have to point back at it.
   const onHome = pathname === "/";
   const sectionHref = (id: string) => (onHome ? `#${id}` : `/#${id}`);
+  const linkHref = (link: (typeof navLinks)[number]) => link.href ?? sectionHref(link.id);
+  const isActive = (link: (typeof navLinks)[number]) =>
+    link.href ? pathname.startsWith("/case-studies") : active === link.id;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -73,15 +76,15 @@ export function Navbar() {
           {navLinks.map((link) => (
             <li key={link.id}>
               <a
-                href={sectionHref(link.id)}
+                href={linkHref(link)}
                 className={cn(
                   "relative px-3 py-2 rounded-full transition-colors",
-                  active === link.id
+                  isActive(link)
                     ? "text-fg"
                     : "text-fg-muted hover:text-fg",
                 )}
               >
-                {active === link.id && (
+                {isActive(link) && (
                   <motion.span
                     layoutId="nav-active"
                     className="absolute inset-0 rounded-full bg-grey-200/70 dark:bg-grey-800/70"
@@ -128,11 +131,11 @@ export function Navbar() {
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <a
-                    href={sectionHref(link.id)}
+                    href={linkHref(link)}
                     onClick={() => setOpen(false)}
                     className={cn(
                       "block rounded-xl px-4 py-3 text-sm font-medium transition-colors",
-                      active === link.id
+                      isActive(link)
                         ? "bg-grey-200/70 dark:bg-grey-800/70 text-fg"
                         : "text-fg-muted hover:bg-bg-subtle hover:text-fg",
                     )}

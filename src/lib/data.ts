@@ -12,11 +12,13 @@ export const personal = {
   resume: "/Hamza-Daniyal-CV.pdf",
 };
 
-export const navLinks = [
+/** An entry with `href` is its own page; the rest are sections of the home page. */
+export const navLinks: { id: string; label: string; href?: string }[] = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
+  { id: "case-studies", label: "Case Studies", href: "/case-studies/" },
   { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ];
