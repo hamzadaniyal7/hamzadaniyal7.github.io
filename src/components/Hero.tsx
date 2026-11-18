@@ -200,7 +200,7 @@ function HeroCard() {
             <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-gold-400/70" />
-            <span className="ml-auto text-fg-subtle">~/lead.engineer.ts</span>
+            <span className="ml-auto text-fg-subtle">~/frontend.ai.engineer.ts</span>
           </div>
           <div className="pt-4 space-y-1">
             <div>

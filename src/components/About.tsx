@@ -108,8 +108,8 @@ export function About() {
               </div>
               <div className="mt-7 pt-6 border-t border-border/60 space-y-2 text-sm text-fg-muted">
                 <Row label="Domains" value="Healthcare · AI · Climate · Logistics · Supply Chain · Dev Tools" />
-                <Row label="Currently" value="Z-Axiss SMC Pvt Ltd" />
-                <Row label="Open to" value="Remote · Lead / Staff frontend" />
+                <Row label="Currently" value="Z-Axiss (SMC - Pvt Ltd)" />
+                <Row label="Open to" value="Remote · Frontend · AI · Full-Stack" />
               </div>
             </GlassCard>
           </motion.div>
