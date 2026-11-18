@@ -193,7 +193,7 @@ function HeroCard() {
       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       className="relative"
     >
-      <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold-300/40 via-gold-400/20 to-transparent blur-2xl animate-pulse" />
+      <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold-300/20 via-gold-400/10 to-transparent blur-2xl" />
       <TiltCard max={5} className="relative rounded-3xl glass-strong p-1.5 shadow-soft">
         <div className="rounded-[18px] bg-bg/80 backdrop-blur p-5 font-mono text-[11px] leading-relaxed">
           <div className="flex items-center gap-1.5 pb-3 border-b border-border/60">
@@ -225,11 +225,27 @@ function HeroCard() {
                 </span>
                 ,{" "}
                 <span className="text-gold-600 dark:text-gold-300">
-                  &apos;RxJS&apos;
+                  &apos;React&apos;
                 </span>
                 ,{" "}
                 <span className="text-gold-600 dark:text-gold-300">
-                  &apos;NgRx&apos;
+                  &apos;TypeScript&apos;
+                </span>
+                <span className="text-fg">]</span>,
+              </div>
+              <div>
+                <span className="text-fg-muted">ai:</span>{" "}
+                <span className="text-fg">[</span>
+                <span className="text-gold-600 dark:text-gold-300">
+                  &apos;LLM Apps&apos;
+                </span>
+                ,{" "}
+                <span className="text-gold-600 dark:text-gold-300">
+                  &apos;AI Agents&apos;
+                </span>
+                ,{" "}
+                <span className="text-gold-600 dark:text-gold-300">
+                  &apos;RAG&apos;
                 </span>
                 <span className="text-fg">]</span>,
               </div>
