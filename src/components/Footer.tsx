@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Globe } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase } from "lucide-react";
 import { personal } from "@/lib/data";
 
 export function Footer() {
@@ -45,13 +45,13 @@ export function Footer() {
             <Linkedin className="h-4 w-4" />
           </a>
           <a
-            href={personal.website}
-            aria-label="Synexis (company)"
+            href={personal.upwork}
+            aria-label="Upwork profile"
             target="_blank"
             rel="noreferrer"
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-strong/60 hover:border-gold-400/60 hover:bg-grey-200/60 dark:hover:bg-grey-800/60 transition-colors"
           >
-            <Globe className="h-4 w-4" />
+            <Briefcase className="h-4 w-4" />
           </a>
         </div>
       </div>

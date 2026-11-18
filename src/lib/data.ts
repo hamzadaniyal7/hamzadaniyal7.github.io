@@ -8,7 +8,7 @@ export const personal = {
   location: "Islamabad, Pakistan",
   github: "https://github.com/hamzadaniyal7",
   linkedin: "https://www.linkedin.com/in/hamzadaniyal7/",
-  website: "https://www.thesynexis.com/",
+  upwork: "https://www.upwork.com/freelancers/~01c77f559214a85ac0",
   resume: "/Hamza-Daniyal-CV.pdf",
 };
 
@@ -24,7 +24,7 @@ export const navLinks = [
 export const stats = [
   { value: 4, suffix: "+", label: "Years of Experience" },
   { value: 2, suffix: "+", label: "Years Building with LLMs" },
-  { value: 9, suffix: "+", label: "Production Platforms" },
+  { value: 11, suffix: "+", label: "Production Platforms" },
   { value: 60, suffix: "+", label: "Charts Migrated" },
 ];
 
@@ -215,6 +215,54 @@ export const projects = [
     ],
   },
   {
+    name: "Trillo Backend Workbench",
+    domain: "AI Platform · Developer Tools",
+    summary:
+      "IDE-style backend workbench where developers compose, test, and deploy AI-powered workflows. The same foundation later powered the Trillo File Manager product.",
+    problem:
+      "Trillo's customers were context-switching between editors, runtime logs, AI prompt tools, and admin consoles. The product needed a unified workspace that felt as responsive as a desktop IDE — without ballooning bundle size or fighting Angular change detection at scale.",
+    solution:
+      "Architected the workbench around lazy-loaded feature modules, Signals + OnPush for surgical re-renders, and a virtualized log/console layer that holds tens of thousands of entries without dropping frames. Reusable layout primitives let new editor surfaces ship in days. The same architecture was extended into the Trillo File Manager product with minimal duplication.",
+    impact: [
+      "IDE-style UX — split panes, live logs, AI tooling — without lag at scale",
+      "New feature surfaces shipped in days, not weeks",
+      "Core product surface for Trillo's developer customers",
+      "Architecture reused end-to-end for the Trillo File Manager spin-off",
+    ],
+    stack: [
+      "Angular 18",
+      "Signals",
+      "RxJS",
+      "NgRx",
+      "TypeScript",
+      "Virtualization",
+    ],
+  },
+  {
+    name: "AI Document Search Engine",
+    domain: "AI Search · Climate Tech",
+    summary:
+      "RAG-based document search for a climate-tech nonprofit — turning a sprawling corpus of policy, program, and incentive documents into instant answers grounded in source passages.",
+    problem:
+      "The client's research, policy, and program documents had grown into a large, unstructured corpus. Stakeholders were spending hours hunting through PDFs for specific clauses, rebates, and program details. Keyword search wasn't enough — the same concept gets phrased a dozen different ways across documents and revisions.",
+    solution:
+      "Built the search engine end-to-end behind their existing product UI: document ingestion and chunking, vector embeddings, a semantically indexed retrieval layer, and a clean retrieval API returning ranked passages with grounded citations. Tuned chunking and ranking for the specific shape of policy and incentive content so answers stay precise instead of vaguely on-topic.",
+    impact: [
+      "Hours of manual document hunting compressed into seconds of semantic search",
+      "Citation-backed answers — every result links straight to its source passage",
+      "Indexing pipeline ingests a continually growing corpus without manual curation",
+      "Drop-in API integrated cleanly with the client's existing product surface",
+    ],
+    stack: [
+      "RAG Pipeline",
+      "Vector Embeddings",
+      "Semantic Search",
+      "Document Indexing",
+      "Retrieval API",
+      "LLMs",
+    ],
+  },
+  {
     name: "Project Management Portal",
     domain: "Project Management · Z-Axiss",
     summary:
@@ -314,11 +362,76 @@ export const projects = [
       "SCSS",
     ],
   },
+  {
+    name: "LoadSonar TMS",
+    domain: "Supply Chain · Logistics",
+    summary:
+      "Transport management frontend covering shipper and carrier workflows — loads, approvals, and operational dashboards.",
+    problem:
+      "Shippers and carriers were coordinating loads across email, spreadsheets, and phone calls. Each side needed a different view of the same shipment, approvals had no audit trail, and operations had no dashboard to see where loads were stuck.",
+    solution:
+      "Built the Angular frontend around role-aware workflows: separate shipper and carrier surfaces over a shared load model, an approval pipeline with explicit state transitions, and operational dashboards that surface bottlenecks. Kept the state layer reactive so status changes propagate without manual refreshes.",
+    impact: [
+      "Shipper and carrier workflows unified on a single load model",
+      "Approvals moved from inboxes into a traceable pipeline",
+      "Dashboards surface stuck loads before they become escalations",
+      "Role-aware UI keeps each side focused on its own decisions",
+    ],
+    stack: ["Angular", "RxJS", "TypeScript", "SCSS", "REST APIs", "RBAC"],
+  },
+  {
+    name: "Molecule Hierarchy PMS",
+    domain: "Project Management · AI-Built",
+    summary:
+      "A hierarchical project management platform modeled on molecule-style decomposition, where every node can branch into deeply nested sub-projects.",
+    problem:
+      "Teams running multi-layered programs were juggling spreadsheets and flat task lists that hid critical relationships. They needed to see how parent goals decomposed into child workstreams — and back — without losing context across hundreds of nodes.",
+    solution:
+      "Built end-to-end with Claude Code as the pair-programming engine: a Next.js + TypeScript app with a virtualized hierarchy renderer, drag-and-drop reorganization, role-based permissions, and real-time collaboration. Architecture was human-driven; AI handled scaffolding, refactors, and accelerated iteration cycles.",
+    impact: [
+      "Production launch in a fraction of the typical timeline",
+      "Hundreds of hierarchical nodes rendered smoothly via virtualization",
+      "Drag-and-drop reorg with optimistic updates and conflict resolution",
+      "Replaced spreadsheet-driven workflows with a single source of truth",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Firebase",
+      "Claude Code",
+    ],
+  },
+  {
+    name: "Client–Concierge Service Platform",
+    domain: "Service Marketplace · AI-Built",
+    summary:
+      "Two-sided service-provider marketplace connecting clients with concierges for on-demand requests, scheduling, real-time chat, and payments.",
+    problem:
+      "A traditional concierge operation was being run on calls, messaging apps, and manual coordination. They needed a unified product that could onboard providers, route client requests, handle scheduling, and capture payments — without years of build time.",
+    solution:
+      "Designed and shipped with a Claude Code + Gemini workflow: role-based dashboards for clients and concierges, a request lifecycle engine, real-time chat, calendar-aware scheduling, and integrated payments. AI accelerated build-out; architecture decisions stayed with the engineer.",
+    impact: [
+      "End-to-end production launch on a compressed timeline",
+      "Unified client + provider experience replaced fragmented tooling",
+      "Real-time messaging and scheduling baked in from day one",
+      "Payments and request lifecycle wired in cleanly for scale",
+    ],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Realtime DB",
+      "Stripe",
+      "Claude Code",
+    ],
+  },
 ];
 
 export const achievements = [
   {
-    title: "Delivered 9+ production platforms",
+    title: "Delivered 11+ production platforms",
     text: "Across AI platforms and developer tools, logistics, analytics, healthcare, supply chain, climate-tech AI search, project management, and service marketplaces — each running in production with real users.",
   },
   {

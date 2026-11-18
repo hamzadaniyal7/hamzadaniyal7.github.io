@@ -9,7 +9,7 @@ import {
   Send,
   Github,
   Linkedin,
-  Globe,
+  Briefcase,
   Check,
   Loader2,
   AlertCircle,
@@ -120,7 +120,7 @@ export function Contact() {
               <div className="mt-5 grid grid-cols-3 gap-3">
                 <SocialLink href={personal.github} icon={Github} label="GitHub" />
                 <SocialLink href={personal.linkedin} icon={Linkedin} label="LinkedIn" />
-                <SocialLink href={personal.website} icon={Globe} label="Synexis" />
+                <SocialLink href={personal.upwork} icon={Briefcase} label="Upwork" />
               </div>
             </GlassCard>
           </motion.div>

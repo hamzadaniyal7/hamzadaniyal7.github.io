@@ -6,7 +6,7 @@ import {
   Mail,
   Github,
   Linkedin,
-  Globe,
+  Briefcase,
   MapPin,
   Sparkles,
 } from "lucide-react";
@@ -122,13 +122,13 @@ export function Hero() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href={personal.website}
-                aria-label="Synexis (company)"
+                href={personal.upwork}
+                aria-label="Upwork profile"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-gold-400/60 transition-all hover:-translate-y-0.5"
               >
-                <Globe className="h-4 w-4" />
+                <Briefcase className="h-4 w-4" />
               </a>
             </div>
           </motion.div>

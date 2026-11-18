@@ -36,7 +36,7 @@ export function Projects() {
                       <div className="relative">
                         <div className="flex items-center justify-between">
                           <div className="text-xs font-mono uppercase tracking-[0.2em] text-fg-subtle">
-                            0{idx + 1} · {p.domain}
+                            {String(idx + 1).padStart(2, "0")} · {p.domain}
                           </div>
                           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold-500/10 dark:bg-gold-300/10 text-gold-600 dark:text-gold-200 transition-transform group-hover:rotate-45">
                             <ArrowUpRight className="h-4 w-4" />
