@@ -430,3 +430,19 @@ export const achievements = [
     text: "Two years building with LLMs daily, and two production platforms shipped end-to-end with Claude Code and Gemini — owning the architecture and reviewing every change.",
   },
 ];
+
+export type Project = (typeof projects)[number];
+
+/**
+ * The three case studies shown on the home page — one AI platform build,
+ * one LLM interface build, one full-stack product. The rest live on /case-studies.
+ */
+const featuredNames = [
+  "Agent Observability Console",
+  "Adaptive UI & Conversational AI",
+  "Project Management Portal",
+];
+
+export const featuredProjects: Project[] = featuredNames.flatMap(
+  (name) => projects.find((project) => project.name === name) ?? [],
+);
