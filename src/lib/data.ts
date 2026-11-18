@@ -363,7 +363,7 @@ export const projects = [
     ],
   },
   {
-    name: "LoadSonar TMS",
+    name: "Logistics Management Platform",
     domain: "Supply Chain · Logistics",
     summary:
       "Transport management frontend covering shipper and carrier workflows — loads, approvals, and operational dashboards.",
