@@ -10,7 +10,6 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular"],
       },
       colors: {
-        accent: "rgb(var(--accent) / <alpha-value>)",
         grey: {
           50: "#fafafa",
           100: "#f5f5f5",

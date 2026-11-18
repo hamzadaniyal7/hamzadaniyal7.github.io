@@ -1,48 +1,103 @@
-import { Plus } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight, Target, Wrench, TrendingUp } from "lucide-react";
+import { GlassCard } from "./ui/GlassCard";
 import { Badge } from "./ui/Badge";
+import { TiltCard } from "./ui/TiltCard";
 import type { Project } from "@/lib/data";
 
 export function ProjectList({ items }: { items: readonly Project[] }) {
   return (
-    <div className="border-t border-border-strong">
-      {items.map((project) => (
-        <details key={project.name} className="project border-b border-border">
-          <summary className="project-summary">
-            <span className="section-label project-domain">{project.domain}</span>
-            <span className="col-start-1 row-start-2 min-w-0 lg:col-start-2 lg:row-start-1">
-              <span role="heading" aria-level={3} className="block text-xl font-semibold tracking-tight sm:text-2xl">
-                {project.name}
-              </span>
-              <span className="mt-2 block max-w-[74ch] text-sm leading-relaxed text-fg-muted sm:text-base">
-                {project.summary}
-              </span>
-            </span>
-            <span aria-hidden="true" className="project-toggle"><Plus size={18} /></span>
-          </summary>
+    <div className="space-y-8">
+      {items.map((p, idx) => (
+        <motion.div
+          key={p.name}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
+        >
+          <TiltCard max={3} className="rounded-2xl">
+            <GlassCard className="overflow-hidden p-0">
+              <div className="grid lg:grid-cols-12 gap-0">
+                <div className="lg:col-span-5 relative p-7 md:p-9 border-b lg:border-b-0 lg:border-r border-border/60 bg-gradient-to-br from-grey-100/50 via-transparent to-transparent dark:from-grey-800/40">
+                  <div className="absolute top-0 right-0 -mt-10 -mr-10 h-40 w-40 rounded-full bg-gold-300/30 dark:bg-gold-500/15 blur-3xl" />
+                  <div className="relative">
+                    <div className="flex items-center justify-between">
+                      <div className="text-xs font-mono uppercase tracking-[0.2em] text-fg-subtle">
+                        {String(idx + 1).padStart(2, "0")} · {p.domain}
+                      </div>
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold-500/10 dark:bg-gold-300/10 text-gold-600 dark:text-gold-200 transition-transform group-hover:rotate-45">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                    <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-fg leading-tight tracking-tight">
+                      {p.name}
+                    </h3>
+                    <p className="mt-3 text-sm md:text-base text-fg-muted leading-relaxed">
+                      {p.summary}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-1.5">
+                      {p.stack.map((s) => (
+                        <Badge key={s}>{s}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
-          <div className="project-detail">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-              <div>
-                <h4 className="section-label">Problem</h4>
-                <p className="mt-2 text-sm leading-relaxed text-fg-muted sm:text-base">{project.problem}</p>
+                <div className="lg:col-span-7 p-7 md:p-9 space-y-6">
+                  <Block icon={Target} label="Problem" body={p.problem} />
+                  <Block icon={Wrench} label="Solution" body={p.solution} />
+                  <Block
+                    icon={TrendingUp}
+                    label="Impact"
+                    body={
+                      <ul className="mt-2 space-y-2">
+                        {p.impact.map((i) => (
+                          <li
+                            key={i}
+                            className="flex gap-2.5 text-sm text-fg-muted leading-relaxed"
+                          >
+                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold-400" />
+                            <span>{i}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    }
+                  />
+                </div>
               </div>
-              <div>
-                <h4 className="section-label">Solution</h4>
-                <p className="mt-2 text-sm leading-relaxed text-fg-muted sm:text-base">{project.solution}</p>
-              </div>
-            </div>
-            <div className="mt-6 border-t border-border pt-5">
-              <h4 className="section-label">Impact</h4>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-fg-muted marker:text-accent sm:text-base">
-                {project.impact.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {project.stack.map((item) => <Badge key={item}>{item}</Badge>)}
-            </div>
-          </div>
-        </details>
+            </GlassCard>
+          </TiltCard>
+        </motion.div>
       ))}
+    </div>
+  );
+}
+
+function Block({
+  icon: Icon,
+  label,
+  body,
+}: {
+  icon: typeof Target;
+  label: string;
+  body: React.ReactNode;
+}) {
+  return (
+    <div>
+      <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-fg-subtle">
+        <Icon className="h-3.5 w-3.5 text-gold-500 dark:text-gold-300" />
+        {label}
+      </div>
+      {typeof body === "string" ? (
+        <p className="mt-2 text-sm md:text-[0.95rem] text-fg leading-relaxed">
+          {body}
+        </p>
+      ) : (
+        body
+      )}
     </div>
   );
 }

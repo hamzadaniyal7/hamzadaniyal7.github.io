@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ProjectList } from "@/components/ProjectList";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { GridBackground } from "@/components/ui/GridBackground";
 import { personal, projects } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -28,69 +29,96 @@ const facts = [
 
 export default function CaseStudies() {
   return (
-    <>
+    <main className="relative">
       <ScrollProgress />
       <Navbar />
-      <main id="main-content" tabIndex={-1}>
-        <section className="hero px-5 sm:px-8 lg:px-12">
-          <div className="container-x">
-            <Link
-              href="/"
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-fg-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
-            >
-              <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-              Back to home
-            </Link>
 
-            <p className="section-label mt-6">Case Studies</p>
-            <h1 className="section-title mt-3">
-              {projects.length} builds, start to finish.
-            </h1>
-            <p className="mt-5 max-w-[66ch] text-base leading-relaxed text-fg-muted sm:text-lg">
-              I&apos;ve shipped 11+ production platforms since 2022. These are the{" "}
-              {projects.length} I can write up in detail — the problem each one
-              actually solved, the architecture I chose and why, and what changed
-              once it was live. Open any one to read the full breakdown.
-            </p>
+      <section className="relative pt-32 md:pt-44 pb-12 md:pb-16 px-6 md:px-10 lg:px-16 overflow-hidden">
+        <GridBackground />
 
-            <dl className="mt-9 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
-              {facts.map(({ value, label }) => (
-                <div key={label} className="flex flex-col-reverse justify-end bg-bg px-4 py-4">
-                  <dt className="mt-1 text-xs leading-snug text-fg-muted sm:text-sm">{label}</dt>
-                  <dd className="text-3xl font-semibold tracking-tight text-accent sm:text-4xl">{value}</dd>
+        <div className="relative container-x">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-fg-muted hover:text-fg transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to home
+          </Link>
+
+          <div className="mt-8 flex items-center gap-3">
+            <span className="font-mono text-[11px] text-gold-600 dark:text-gold-400 tracking-[0.3em]">
+              ALL
+            </span>
+            <span className="h-px w-10 bg-gradient-to-r from-gold-500/60 via-gold-500/30 to-transparent" />
+            <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-fg-muted">
+              Case Studies
+            </span>
+          </div>
+
+          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-balance">
+            {projects.length} builds,{" "}
+            <span className="gradient-text">start to finish.</span>
+          </h1>
+
+          <p className="mt-6 max-w-3xl text-base md:text-lg text-fg-muted leading-relaxed">
+            I&apos;ve shipped 11+ production platforms since 2022. These are the{" "}
+            {projects.length} I can write up in detail — the problem each one
+            actually solved, the architecture I chose and why, and what changed
+            once it was live.
+          </p>
+
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {facts.map(({ value, label }) => (
+              <div key={label}>
+                <div className="text-3xl md:text-4xl font-semibold tracking-tight gradient-text">
+                  {value}
                 </div>
-              ))}
-            </dl>
+                <div className="mt-1 text-xs md:text-sm text-fg-muted">
+                  {label}
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="section-pad bg-bg-subtle">
-          <div className="container-x">
-            <ProjectList items={projects} />
-          </div>
-        </section>
+      <section className="section-pad relative pt-4 md:pt-8">
+        <div className="container-x">
+          <ProjectList items={projects} />
+        </div>
+      </section>
 
-        <section className="section-pad">
-          <div className="container-x">
-            <h2 className="section-title max-w-[20ch]">
-              Want one of these built for your team?
-            </h2>
-            <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-fg-muted sm:text-lg">
-              Tell me the problem you&apos;re solving and I&apos;ll tell you what I
-              would build, how long it takes, and what I&apos;d leave out.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Link href="/#contact" className="action action-primary">
-                Get in touch <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </Link>
-              <a href={personal.resume} download="Hamza-Daniyal-CV.pdf" className="action action-secondary">
-                <Download aria-hidden="true" className="h-4 w-4" /> Resume
-              </a>
-            </div>
+      <section className="section-pad relative">
+        <div className="container-x">
+          <h2 className="max-w-[20ch] text-3xl md:text-4xl font-semibold tracking-tight leading-[1.08] text-balance">
+            Want one of these built for{" "}
+            <span className="gradient-text">your team?</span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-base md:text-lg text-fg-muted leading-relaxed">
+            Tell me the problem you&apos;re solving and I&apos;ll tell you what I
+            would build, how long it takes, and what I&apos;d leave out.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/#contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-gold-500 hover:bg-gold-600 dark:bg-gold-500 dark:hover:bg-gold-600 text-grey-950 px-5 py-3 text-sm font-medium shadow-glow transition-colors"
+            >
+              Get in touch
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <a
+              href={personal.resume}
+              download="Hamza-Daniyal-CV.pdf"
+              className="inline-flex items-center gap-2 rounded-full border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle px-5 py-3 text-sm font-medium text-fg-muted hover:text-fg transition-colors"
+            >
+              <Download className="h-4 w-4" />
+              Resume
+            </a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
       <Footer />
-    </>
+    </main>
   );
 }

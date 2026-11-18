@@ -1,123 +1,160 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Download, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Download } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { navLinks, personal } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string>();
-  const menuButton = useRef<HTMLButtonElement>(null);
-  const header = useRef<HTMLElement>(null);
+  const [active, setActive] = useState<string>("");
   const pathname = usePathname();
-  // Sections live on the home page, so off-home the same links have to point back at it.
+  // The sections live on the home page, so off-home the same links have to point back at it.
   const onHome = pathname === "/";
   const sectionHref = (id: string) => (onHome ? `#${id}` : `/#${id}`);
 
   useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     if (!onHome) {
-      setActive(undefined);
+      setActive("");
       return;
     }
 
-    const sections = [...navLinks].reverse().map(({ id }) => document.getElementById(id));
-
-    const updateActiveSection = () => {
-      const readingLine = Math.max(window.innerHeight * 0.33, 90);
-      const section = sections.find((item) => item && item.getBoundingClientRect().top <= readingLine);
-      setActive(section?.id);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-    return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+    );
+    navLinks.forEach((link) => {
+      const el = document.getElementById(link.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, [onHome]);
 
-  useEffect(() => {
-    if (!open) return;
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setOpen(false);
-        menuButton.current?.focus();
-      }
-    }
-
-    function onPointerDown(event: PointerEvent) {
-      if (event.target instanceof Node && !header.current?.contains(event.target)) {
-        setOpen(false);
-      }
-    }
-
-    const desktop = window.matchMedia("(min-width: 1024px)");
-    const onResize = () => { if (desktop.matches) setOpen(false); };
-
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-    desktop.addEventListener("change", onResize);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-      desktop.removeEventListener("change", onResize);
-    };
-  }, [open]);
-
   return (
-    <header ref={header} className="site-header sticky top-0 z-50 border-b border-border bg-bg/95 px-5 backdrop-blur-lg sm:px-8 lg:px-12">
-      <a href="#main-content" className="skip-link">Skip to content</a>
-      <nav aria-label="Primary" className="container-x flex min-h-[4.25rem] items-center justify-between gap-3">
-        <a href={onHome ? "#top" : "/"} onClick={() => setOpen(false)} className="inline-flex min-h-11 items-center gap-2.5 whitespace-nowrap font-semibold tracking-tight">
-          <span aria-hidden="true" className="brand-mark">HD</span>
-          <span>{personal.name}</span>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:pt-6">
+      <motion.nav
+        initial={{ y: -16, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={cn(
+          "mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 md:px-6 py-3",
+          "transition-all duration-300",
+          scrolled
+            ? "bg-bg/70 backdrop-blur-xl border border-border-strong/60 shadow-soft"
+            : "bg-transparent border border-transparent",
+        )}
+      >
+        <a
+          href={onHome ? "#top" : "/"}
+          className="group inline-flex items-center gap-2 font-semibold tracking-tight"
+        >
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-500 dark:bg-gold-500 text-grey-950 font-mono font-bold shadow-glow group-hover:scale-105 transition-transform">
+            HD
+          </span>
+          <span className="hidden sm:inline text-fg">Hamza Daniyal</span>
         </a>
 
-        <ul className="hidden items-center gap-1 lg:flex">
-          {navLinks.map(({ id, label }) => (
-            <li key={id}>
-              <a href={sectionHref(id)} aria-current={active === id ? "location" : undefined} className="nav-link">{label}</a>
+        <ul className="hidden lg:flex items-center gap-1 text-sm">
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <a
+                href={sectionHref(link.id)}
+                className={cn(
+                  "relative px-3 py-2 rounded-full transition-colors",
+                  active === link.id
+                    ? "text-fg"
+                    : "text-fg-muted hover:text-fg",
+                )}
+              >
+                {active === link.id && (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute inset-0 rounded-full bg-grey-200/70 dark:bg-grey-800/70"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative">{link.label}</span>
+              </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <a href={personal.resume} download="Hamza-Daniyal-CV.pdf" className="action action-secondary hidden sm:inline-flex">
-            <Download aria-hidden="true" className="h-4 w-4" /> Resume
+        <div className="flex items-center gap-2">
+          <a
+            href={personal.resume}
+            download="Hamza-Daniyal-CV.pdf"
+            className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gold-400/40 bg-gold-500/10 hover:bg-gold-500/20 dark:bg-gold-400/10 dark:hover:bg-gold-400/20 text-gold-700 dark:text-gold-200 px-3.5 py-1.5 text-xs font-medium transition-colors"
+          >
+            <Download className="h-3.5 w-3.5" />
+            Resume
           </a>
           <ThemeToggle />
           <button
-            ref={menuButton}
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-navigation"
-            onClick={() => setOpen(!open)}
-            className="icon-action lg:hidden"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((s) => !s)}
+            className="lg:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-strong/60 bg-bg-subtle/60"
           >
-            {open ? <X aria-hidden="true" size={18} /> : <Menu aria-hidden="true" size={18} />}
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
-      </nav>
+      </motion.nav>
 
-      <nav id="mobile-navigation" aria-label="Mobile" hidden={!open} className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.25rem-1px)] overflow-y-auto border-y border-border bg-bg px-5 py-3 sm:px-8 lg:hidden">
-        <ul>
-          {navLinks.map(({ id, label }) => (
-            <li key={id}>
-              <a href={sectionHref(id)} aria-current={active === id ? "location" : undefined} onClick={() => setOpen(false)} className="nav-link w-full">{label}</a>
-            </li>
-          ))}
-          <li>
-            <a href={personal.resume} download="Hamza-Daniyal-CV.pdf" onClick={() => setOpen(false)} className="nav-link w-full gap-2">
-              <Download aria-hidden="true" className="h-4 w-4" /> Download Resume
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden mx-auto mt-2 max-w-6xl rounded-2xl bg-bg/90 backdrop-blur-xl border border-border-strong/60 p-2 shadow-soft"
+          >
+            <ul className="flex flex-col">
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={sectionHref(link.id)}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "block rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                      active === link.id
+                        ? "bg-grey-200/70 dark:bg-grey-800/70 text-fg"
+                        : "text-fg-muted hover:bg-bg-subtle hover:text-fg",
+                    )}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={personal.resume}
+                  download="Hamza-Daniyal-CV.pdf"
+                  className="mt-1 flex items-center gap-2 rounded-xl bg-gold-500 dark:bg-gold-400 text-grey-950 px-4 py-3 text-sm font-medium"
+                >
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -1,33 +1,54 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Trophy, Rocket, Activity, Users } from "lucide-react";
 import { SectionHeading } from "./ui/SectionHeading";
+import { GlassCard } from "./ui/GlassCard";
 import { achievements } from "@/lib/data";
 
 const icons = [Rocket, Trophy, Activity, Users];
 
 export function Achievements() {
   return (
-    <section id="achievements" className="section-pad">
+    <section id="achievements" className="section-pad relative">
       <div className="container-x">
         <SectionHeading
+          index="05"
           eyebrow="Achievements"
           title="Compounded wins, not vanity metrics."
           description="What I&apos;ve built, modernized, and led — measured by what stayed true after the launch."
         />
 
-        <ul className="grid gap-x-8 border-b border-border sm:grid-cols-2">
-          {achievements.map(({ title, text }, index) => {
-            const Icon = icons[index] ?? Trophy;
+        <div className="grid sm:grid-cols-2 gap-5">
+          {achievements.map((a, idx) => {
+            const Icon = icons[idx] ?? Trophy;
             return (
-              <li key={title} className="flex items-start gap-4 border-t border-border py-5 sm:py-6">
-                <Icon aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                <div>
-                  <h3 className="font-semibold sm:text-lg">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-fg-muted sm:text-base">{text}</p>
-                </div>
-              </li>
+              <motion.div
+                key={a.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: idx * 0.06, ease: "easeOut" }}
+              >
+                <GlassCard interactive className="h-full">
+                  <div className="flex items-start gap-4">
+                    <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-gold-500/20 to-gold-500/5 text-gold-600 dark:from-gold-300/20 dark:to-gold-300/5 dark:text-gold-200 ring-1 ring-gold-500/10 dark:ring-gold-300/15 transition-all duration-500 group-hover:ring-gold-400/40 group-hover:from-gold-500/30 group-hover:scale-110">
+                      <Icon className="h-5 w-5 transition-transform duration-500 group-hover:rotate-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-lg font-semibold text-fg">
+                        {a.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm text-fg-muted leading-relaxed">
+                        {a.text}
+                      </p>
+                    </div>
+                  </div>
+                </GlassCard>
+              </motion.div>
             );
           })}
-        </ul>
+        </div>
       </div>
     </section>
   );

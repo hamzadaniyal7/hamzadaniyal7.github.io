@@ -2,14 +2,49 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <button type="button" aria-label="Toggle color theme" onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")} className="icon-action">
-      <Moon aria-hidden="true" className="h-4 w-4 dark:hidden" />
-      <Sun aria-hidden="true" className="hidden h-4 w-4 dark:block" />
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className={cn(
+        "relative inline-flex h-9 w-9 items-center justify-center rounded-full",
+        "border border-border-strong/60 bg-bg-subtle/60 backdrop-blur",
+        "hover:border-gold-400/60 hover:bg-grey-200/60 dark:hover:bg-grey-800/60",
+        "transition-colors",
+        className,
+      )}
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        {mounted && (
+          <motion.span
+            key={isDark ? "moon" : "sun"}
+            initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
+            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+            exit={{ rotate: 90, opacity: 0, scale: 0.6 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="flex"
+          >
+            {isDark ? (
+              <Moon className="h-4 w-4 text-gold-200" />
+            ) : (
+              <Sun className="h-4 w-4 text-gold-600" />
+            )}
+          </motion.span>
+        )}
+      </AnimatePresence>
     </button>
   );
 }
