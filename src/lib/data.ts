@@ -363,23 +363,6 @@ export const projects = [
     ],
   },
   {
-    name: "Logistics Management Platform",
-    domain: "Supply Chain · Logistics",
-    summary:
-      "Transport management frontend covering shipper and carrier workflows — loads, approvals, and operational dashboards.",
-    problem:
-      "Shippers and carriers were coordinating loads across email, spreadsheets, and phone calls. Each side needed a different view of the same shipment, approvals had no audit trail, and operations had no dashboard to see where loads were stuck.",
-    solution:
-      "Built the Angular frontend around role-aware workflows: separate shipper and carrier surfaces over a shared load model, an approval pipeline with explicit state transitions, and operational dashboards that surface bottlenecks. Kept the state layer reactive so status changes propagate without manual refreshes.",
-    impact: [
-      "Shipper and carrier workflows unified on a single load model",
-      "Approvals moved from inboxes into a traceable pipeline",
-      "Dashboards surface stuck loads before they become escalations",
-      "Role-aware UI keeps each side focused on its own decisions",
-    ],
-    stack: ["Angular", "RxJS", "TypeScript", "SCSS", "REST APIs", "RBAC"],
-  },
-  {
     name: "Molecule Hierarchy PMS",
     domain: "Project Management · AI-Built",
     summary:
