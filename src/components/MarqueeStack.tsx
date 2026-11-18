@@ -1,28 +1,14 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Marquee } from "./ui/Marquee";
 import { marqueeStack } from "@/lib/data";
 
 export function MarqueeStack() {
   return (
-    <section className="relative py-10 md:py-14 border-y border-border/60 bg-bg-subtle/30 backdrop-blur-sm overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="container-x"
-      >
-        <div className="flex items-center gap-6 px-6 md:px-10 lg:px-16">
-          <span className="hidden md:inline text-[11px] font-mono uppercase tracking-[0.25em] text-fg-subtle whitespace-nowrap">
-            Tech Stack //
-          </span>
-          <div className="flex-1">
-            <Marquee items={marqueeStack} speed="normal" />
-          </div>
-        </div>
-      </motion.div>
+    <section aria-label="Tech Stack" className="border-y border-border bg-bg-subtle px-5 py-6 sm:px-8 lg:px-12">
+      <div className="container-x flex flex-col gap-3 md:flex-row md:items-baseline md:gap-8">
+        <p className="section-label shrink-0">Tech Stack</p>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-fg-muted">
+          {marqueeStack.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      </div>
     </section>
   );
 }

@@ -12,18 +12,20 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <>
       <ScrollProgress />
       <Navbar />
-      <Hero />
-      <MarqueeStack />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Achievements />
-      <Contact />
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <MarqueeStack />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Achievements />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

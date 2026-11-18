@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -17,7 +16,6 @@ import {
 import { SectionHeading } from "./ui/SectionHeading";
 import { GlassCard } from "./ui/GlassCard";
 import { personal } from "@/lib/data";
-import { cn } from "@/lib/utils";
 
 const WEB3FORMS_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_KEY ??
@@ -71,154 +69,64 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-pad relative">
+    <section id="contact" className="section-pad bg-bg-subtle">
       <div className="container-x">
         <SectionHeading
-          index="06"
           eyebrow="Contact"
           title="Let&apos;s build something fast and well-architected."
           description="Open to remote Frontend Engineer, AI Application Engineer and Full-Stack roles with product teams building AI-powered or complex SaaS software. If that&apos;s you — or you have a project in mind — let&apos;s talk."
         />
 
-        <div className="grid lg:grid-cols-12 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-5 space-y-5"
-          >
-            <GlassCard>
-              <div className="text-xs font-medium uppercase tracking-[0.2em] text-fg-subtle">
-                Direct
-              </div>
-              <div className="mt-5 space-y-4">
-                <ContactRow
-                  icon={Mail}
-                  label="Email"
-                  value={personal.email}
-                  href={`mailto:${personal.email}`}
-                />
-                <ContactRow
-                  icon={Phone}
-                  label="Phone"
-                  value={personal.phone}
-                  href={`tel:${personal.phone.replace(/\s/g, "")}`}
-                />
-                <ContactRow
-                  icon={MapPin}
-                  label="Location"
-                  value={personal.location}
-                />
-              </div>
-            </GlassCard>
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-10">
+          <div className="min-w-0">
+            <h3 className="section-label">Direct</h3>
+            <dl className="mt-3 divide-y divide-border border-y border-border">
+              <ContactRow icon={Mail} label="Email" value={personal.email} href={`mailto:${personal.email}`} />
+              <ContactRow icon={Phone} label="Phone" value={personal.phone} href={`tel:${personal.phone.replace(/\s/g, "")}`} />
+              <ContactRow icon={MapPin} label="Location" value={personal.location} />
+            </dl>
+            <h3 className="section-label mt-6">Elsewhere</h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <SocialLink href={personal.github} icon={Github} label="GitHub" />
+              <SocialLink href={personal.linkedin} icon={Linkedin} label="LinkedIn" />
+              <SocialLink href={personal.upwork} icon={Briefcase} label="Upwork" />
+            </div>
+          </div>
 
-            <GlassCard>
-              <div className="text-xs font-medium uppercase tracking-[0.2em] text-fg-subtle">
-                Elsewhere
+          <GlassCard className="min-w-0 bg-bg">
+            <form onSubmit={onSubmit} className="space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Name" name="name" value={form.name} onChange={onChange} placeholder="Jane Doe" />
+                <Field label="Email" name="email" type="email" value={form.email} onChange={onChange} placeholder="jane@company.com" />
               </div>
-              <div className="mt-5 grid grid-cols-3 gap-3">
-                <SocialLink href={personal.github} icon={Github} label="GitHub" />
-                <SocialLink href={personal.linkedin} icon={Linkedin} label="LinkedIn" />
-                <SocialLink href={personal.upwork} icon={Briefcase} label="Upwork" />
+              <Field label="Message" name="message" value={form.message} onChange={onChange} placeholder="Tell me about the role or project..." textarea />
+              <input type="checkbox" name="botcheck" hidden tabIndex={-1} autoComplete="off" />
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p role="status" className="max-w-xs text-sm leading-relaxed text-fg-muted">
+                  {status === "sent"
+                    ? "Thanks — I'll get back to you within 24 hours."
+                    : status === "error"
+                      ? "Couldn't send. You can retry below."
+                      : "Goes straight to my inbox — usually a reply within 24 hours."}
+                </p>
+                <button type="submit" disabled={status === "sending"} className="action action-primary shrink-0 disabled:cursor-wait disabled:opacity-60">
+                  {status === "sending" ? (
+                    <><Loader2 aria-hidden="true" className="h-4 w-4 motion-safe:animate-spin" /> Sending...</>
+                  ) : status === "sent" ? (
+                    <><Check aria-hidden="true" className="h-4 w-4" /> Sent</>
+                  ) : (
+                    <><Send aria-hidden="true" className="h-4 w-4" /> {status === "error" ? "Try again" : "Send Message"}</>
+                  )}
+                </button>
               </div>
-            </GlassCard>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="lg:col-span-7"
-          >
-            <GlassCard>
-              <form onSubmit={onSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Field
-                    label="Name"
-                    name="name"
-                    value={form.name}
-                    onChange={onChange}
-                    placeholder="Jane Doe"
-                    required
-                  />
-                  <Field
-                    label="Email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={onChange}
-                    placeholder="jane@company.com"
-                    required
-                  />
+              {status === "error" && errorMessage && (
+                <div role="alert" className="flex items-start gap-2 rounded-lg border border-red-400/40 bg-red-400/10 px-3 py-2 text-sm text-red-700 dark:text-red-300">
+                  <AlertCircle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>{errorMessage}</span>
                 </div>
-                <Field
-                  label="Message"
-                  name="message"
-                  value={form.message}
-                  onChange={onChange}
-                  placeholder="Tell me about the role or project..."
-                  textarea
-                  required
-                />
-                <input
-                  type="checkbox"
-                  name="botcheck"
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-                <div className="flex items-center justify-between gap-4 pt-2">
-                  <p className="text-xs text-fg-subtle">
-                    {status === "sent"
-                      ? "Thanks — I'll get back to you within 24 hours."
-                      : status === "error"
-                        ? "Couldn't send. You can retry below."
-                        : "Goes straight to my inbox — usually a reply within 24 hours."}
-                  </p>
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className={cn(
-                      "group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all",
-                      "bg-gold-500 hover:bg-gold-600 dark:bg-gold-500 dark:hover:bg-gold-600 text-grey-950",
-                      "shadow-glow hover:shadow-glow-strong hover:-translate-y-0.5",
-                      "disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0",
-                    )}
-                  >
-                    {status === "sending" ? (
-                      <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : status === "sent" ? (
-                      <>
-                        <Check className="h-4 w-4" />
-                        Sent
-                      </>
-                    ) : status === "error" ? (
-                      <>
-                        <Send className="h-4 w-4" />
-                        Try again
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </div>
-                {status === "error" && errorMessage && (
-                  <div className="flex items-start gap-2 rounded-xl border border-red-400/40 bg-red-400/10 px-3 py-2 text-xs text-red-600 dark:text-red-300">
-                    <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-                    <span>{errorMessage}</span>
-                  </div>
-                )}
-              </form>
-            </GlassCard>
-          </motion.div>
+              )}
+            </form>
+          </GlassCard>
         </div>
       </div>
     </section>
@@ -236,46 +144,23 @@ function ContactRow({
   value: string;
   href?: string;
 }) {
-  const content = (
-    <div className="flex items-center gap-4 group">
-      <div className="grid h-10 w-10 place-items-center rounded-xl bg-gold-500/10 dark:bg-gold-300/10 text-gold-600 dark:text-gold-200 transition-colors group-hover:bg-gold-500/20 dark:group-hover:bg-gold-300/20">
-        <Icon className="h-4 w-4" />
-      </div>
-      <div className="min-w-0">
-        <div className="text-xs uppercase tracking-wider text-fg-subtle">
-          {label}
-        </div>
-        <div className="text-sm md:text-base text-fg truncate">{value}</div>
-      </div>
+  return (
+    <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-2 py-3.5 text-sm sm:gap-4">
+      <dt className="flex items-center gap-2 font-medium">
+        <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-accent" />
+        {label}
+      </dt>
+      <dd className="break-words text-fg-muted">
+        {href ? <a href={href} className="underline-offset-4 hover:text-accent hover:underline">{value}</a> : value}
+      </dd>
     </div>
-  );
-  return href ? (
-    <a href={href} className="block">
-      {content}
-    </a>
-  ) : (
-    content
   );
 }
 
-function SocialLink({
-  href,
-  icon: Icon,
-  label,
-}: {
-  href: string;
-  icon: typeof Github;
-  label: string;
-}) {
+function SocialLink({ href, icon: Icon, label }: { href: string; icon: typeof Github; label: string }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={label}
-      className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border-strong/60 bg-bg-subtle/40 hover:bg-bg-subtle hover:border-gold-400/60 px-4 py-3 text-sm text-fg transition-colors"
-    >
-      <Icon className="h-4 w-4" />
+    <a href={href} target="_blank" rel="noreferrer" className="action action-secondary px-3">
+      <Icon aria-hidden="true" className="h-4 w-4" />
       {label}
     </a>
   );
@@ -286,52 +171,21 @@ type FieldProps = {
   name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  placeholder?: string;
+  placeholder: string;
   type?: string;
-  required?: boolean;
   textarea?: boolean;
 };
 
-function Field({
-  label,
-  name,
-  value,
-  onChange,
-  placeholder,
-  type = "text",
-  required,
-  textarea,
-}: FieldProps) {
-  const baseClass = cn(
-    "w-full rounded-xl border border-border bg-bg-subtle/40 px-4 py-3 text-sm text-fg placeholder:text-fg-subtle/70",
-    "outline-none transition-all",
-    "focus:border-gold-400/70 focus:bg-bg-subtle/70 focus:ring-2 focus:ring-gold-400/20",
-  );
+function Field({ label, name, value, onChange, placeholder, type = "text", textarea }: FieldProps) {
+  const props = { name, value, onChange, placeholder, required: true };
+
   return (
-    <label className="block">
-      <span className="block text-xs font-medium uppercase tracking-wider text-fg-subtle mb-1.5">
-        {label}
-      </span>
+    <label className="block min-w-0">
+      <span className="mb-2 block text-sm font-medium">{label}</span>
       {textarea ? (
-        <textarea
-          name={name}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          required={required}
-          rows={5}
-          className={cn(baseClass, "resize-none")}
-        />
+        <textarea {...props} rows={5} className="contact-field block resize-y" />
       ) : (
-        <input
-          name={name}
-          type={type}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          required={required}
-          className={baseClass}
-        />
+        <input {...props} type={type} autoComplete={name} className="contact-field block" />
       )}
     </label>
   );
